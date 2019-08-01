@@ -5,7 +5,7 @@ namespace Moay\OpensensemapApiClient\SensorValue;
 /**
  * Class DataCollection.
  */
-class SensorValueCollection implements \JsonSerializable
+class SensorValueCollection implements \JsonSerializable, \Countable
 {
     /** @var SensorValue[] */
     private $sensorValues;
@@ -34,6 +34,14 @@ class SensorValueCollection implements \JsonSerializable
         return array_map(function (SensorValue $sensorValue) {
             return $sensorValue->jsonSerialize();
         }, $this->sensorValues);
+    }
+
+    /**
+     * @return int
+     */
+    public function count()
+    {
+        return count($this->sensorValues);
     }
 
 
