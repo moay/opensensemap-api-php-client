@@ -35,7 +35,7 @@ As there was no need for further features, none have been implemented. This coul
 
 ## License
 
-The client is published under the [MIT license](LICENSE.md).
+The client is published under the [MIT license](LICENSE).
 
 [senseBox](https://sensebox.de) and all related contents, visuals and brands are published under CC licenses or other public domain licenses.
 Make sure to check out the project.
