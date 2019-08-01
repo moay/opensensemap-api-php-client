@@ -6,7 +6,15 @@
 
 A lightweight client for retrieving sensor data from a senseBox from the opensensemap api.
 
-**This is not an official project from the senseBox team.**  
+**This is not an official project from the senseBox team.**
+
+## Setup
+
+Install via composer:
+
+```
+composer require moay/opensensemap-api-php-client
+```
 
 ## Usage
 
