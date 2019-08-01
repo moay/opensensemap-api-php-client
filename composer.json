@@ -3,7 +3,7 @@
     "description": "A client for retrieving sensor data from a senseBox from the opensensemap api",
     "type": "library",
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.1",
         "ext-json": "*",
         "guzzlehttp/guzzle": "^6.3"
     },
