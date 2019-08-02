@@ -2,10 +2,12 @@
 
 namespace Moay\OpensensemapApiClient\SensorValue;
 
+use Traversable;
+
 /**
  * Class DataCollection.
  */
-class SensorValueCollection implements \JsonSerializable, \Countable
+class SensorValueCollection implements \JsonSerializable, \Countable, \IteratorAggregate
 {
     /** @var SensorValue[] */
     private $sensorValues;
@@ -42,6 +44,14 @@ class SensorValueCollection implements \JsonSerializable, \Countable
     public function count()
     {
         return count($this->sensorValues);
+    }
+
+    /**
+     * @return \ArrayIterator|Traversable
+     */
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->sensorValues);
     }
 
 
