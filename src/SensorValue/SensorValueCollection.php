@@ -29,6 +29,42 @@ class SensorValueCollection implements \JsonSerializable, \Countable, \IteratorA
     }
 
     /**
+     * Looks for the first sensor of the given type and returns it
+     *
+     * @param string $sensorType
+     *
+     * @return SensorValue|null
+     */
+    public function getValueBySensor(string $sensorType): ?SensorValue
+    {
+        foreach ($this->sensorValues as $sensorValue) {
+            if ($sensorType === $sensorValue->getSensorType()) {
+                return $sensorValue;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Looks for the first value of the given type and returns it
+     *
+     * @param string $valueType
+     *
+     * @return SensorValue|null
+     */
+    public function getValueByType(string $valueType): ?SensorValue
+    {
+        foreach ($this->sensorValues as $sensorValue) {
+            if ($valueType === $sensorValue->getValueType()) {
+                return $sensorValue;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * @return array
      */
     public function jsonSerialize()
