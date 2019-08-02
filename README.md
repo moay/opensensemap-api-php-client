@@ -21,18 +21,32 @@ composer require moay/opensensemap-api-php-client
 Take a look at the implementation example in the directory `example`.
 
 ```php
-$client = \Moay\OpensensemapApiClient\OpensensemapApiClientFactory::create();
+$client = OpensensemapApiClientFactory::create();
 
 // Change senseBox id
 $senseBoxData = $client->getSenseBoxData('someSenseBoxId');
 
-foreach ($senseBoxData->getSensorValues() as $sensorValue) {
+foreach ($senseBoxData as $sensorValue) {
     // $sensorValue->getValueType()
     // $sensorValue->getValue()
     // $sensorValue->getUnit()
     // $sensorValue->getSensorType()
     // $sensorValue->getMeasurementTime()->format('Y-m-d H:i:s')
 }
+```
+
+You don't have to iterate over all values, just use this handy function:
+
+```php
+$temperature = $senseBoxData->getValueByType(SensorValue::TYPE_TEMPERATURE);
+```
+
+Outputting values can be done directly by casting the values to strings:
+
+```php
+echo 'Temperature: '.$temperature; // Output: Temperature: 12 °C
+echo $temperature; // Output: 12 °C
+$temperatureString = (string) $temperature // $temperature = '12 °C' 
 ```
 
 ## Features

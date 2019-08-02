@@ -2,12 +2,15 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-$client = \Moay\OpensensemapApiClient\OpensensemapApiClientFactory::create();
+use \Moay\OpensensemapApiClient\OpensensemapApiClientFactory;
+use \Moay\OpensensemapApiClient\SensorValue\SensorValue;
+
+$client = OpensensemapApiClientFactory::create();
 $senseBoxData = $client->getSenseBoxData('5a0c2cc89fd3c200111118f0');
 
-foreach ($senseBoxData->getSensorValues() as $sensorValue) {
+foreach ($senseBoxData as $sensorValue) {
     echo sprintf(
-        '%s: %s %s (Sensor: %s, %s)<br/>',
+        '%s: %s %s (Sensor: %s, %s)'."\n",
         $sensorValue->getValueType(),
         $sensorValue->getValue(),
         $sensorValue->getUnit(),
@@ -15,3 +18,9 @@ foreach ($senseBoxData->getSensorValues() as $sensorValue) {
         $sensorValue->getMeasurementTime()->format('Y-m-d H:i:s')
     );
 }
+
+$temperature = $senseBoxData->getValueByType(SensorValue::TYPE_TEMPERATURE);
+echo 'Temperature by type: '.$temperature->getValue().' '.$temperature->getUnit()."\n";
+
+// Shorthand string output
+echo 'Temperature by type shorthand: '.$temperature."\n";
