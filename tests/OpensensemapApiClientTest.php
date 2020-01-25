@@ -14,8 +14,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class OpensensemapApiClientTest.
- *
- * @author Manuel Voss <manuel.voss@i22.de>
  */
 class OpensensemapApiClientTest extends TestCase
 {
