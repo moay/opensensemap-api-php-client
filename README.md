@@ -46,7 +46,7 @@ Outputting values can be done directly by casting the values to strings:
 ```php
 echo 'Temperature: '.$temperature; // Output: Temperature: 12 °C
 echo $temperature; // Output: 12 °C
-$temperatureString = (string) $temperature // $temperature = '12 °C' 
+$temperatureString = (string) $temperature // $temperatureString = '12 °C' 
 ```
 
 ## Features
